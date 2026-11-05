@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Adeline ❤️</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for romantic and clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Styles and Animations */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff0f5; /* Soft lavender blush / pastel pink */
+            overflow: hidden; /* Prevent scrolling, keep it app-like */
+            touch-action: pan-x pan-y; /* Optimize for touch */
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Page Transition Setup */
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            transform: translateY(20px);
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .page.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+            z-index: 10;
+        }
+
+        /* Pulse animation for the main button */
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .btn-pulse {
+            animation: pulse-soft 2s infinite;
+        }
+
+        /* Falling Hearts Animation */
+        .heart-fall {
+            position: fixed;
+            top: -10vh;
+            font-size: 1.5rem;
+            z-index: 50;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hide scrollbar for the container if content is long */
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+        .scroll-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased relative h-screen w-screen">
+
+    <!-- PAGE 1: The Story -->
+    <div id="page1" class="page active overflow-y-auto scroll-container">
+        <div class="max-w-2xl w-full text-center bg-white/60 backdrop-blur-sm p-6 sm:p-10 rounded-3xl shadow-xl border border-white/50 my-auto">
+            <h1 class="heading-font text-3xl sm:text-4xl text-pink-600 mb-6">Hai Adeline...</h1>
+            
+            <p class="text-sm sm:text-base leading-relaxed text-gray-700 mb-6 text-justify sm:text-center">
+                Berawal dari saling follow di TikTok, jujur aku jatuh cinta pada pandangan pertama. 
+                Dari obrolan soal HP yang retak gara-gara jatuh dari motor, sampai ngobrolin hal-hal random di Discord. 
+                Semakin aku dekat sama kamu, aku semakin ngerasa nyaman dan aman.
+            </p>
+            <p class="text-sm sm:text-base leading-relaxed text-gray-700 mb-8 font-medium">
+                Hari ini, 6 November 2026, aku mau bilang kalau aku akan selalu menerima kamu dalam kondisi apapun—sakit dan sembuh, suka dan duka, tangis dan tawa.
+            </p>
+
+            <!-- Image Placeholders -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <!-- Replace 'src' with your actual image URLs -->
+                <div class="aspect-square bg-pink-100 rounded-2xl overflow-hidden shadow-inner border-2 border-pink-200 p-2 transform rotate-2 hover:rotate-0 transition duration-300">
+                    <img src="foto1.jpg" alt="Foto 1" class="w-full h-full object-cover rounded-xl">
+                </div>
+                <div class="aspect-square bg-pink-100 rounded-2xl overflow-hidden shadow-inner border-2 border-pink-200 p-2 transform -rotate-2 hover:rotate-0 transition duration-300 mt-2 sm:mt-0">
+                    <img src="foto2.jpg" alt="Foto 2" class="w-full h-full object-cover rounded-xl">
+                </div>
+                <div class="aspect-square bg-pink-100 rounded-2xl overflow-hidden shadow-inner border-2 border-pink-200 p-2 transform rotate-3 hover:rotate-0 transition duration-300 mt-2 sm:mt-0">
+                    <img src="foto3.jpg" alt="Foto 3" class="w-full h-full object-cover rounded-xl">
+                </div>
+            </div>
+
+            <button onclick="goToPage(2)" class="btn-pulse inline-block px-8 py-3 bg-gradient-to-r from-pink-400 to-pink-500 text-white font-semibold rounded-full shadow-lg hover:shadow-pink-300/50 hover:from-pink-500 hover:to-pink-600 transition-all active:scale-95">
+                Ada yang mau aku sampaikan ❤️
+            </button>
+        </div>
+    </div>
+
+    <!-- PAGE 2: The Build-up -->
+    <div id="page2" class="page">
+        <div class="text-center cursor-pointer p-10" onclick="goToPage(3)">
+            <h2 class="heading-font text-4xl sm:text-6xl text-pink-600 mb-8 tracking-wide drop-shadow-sm">
+                I want to tell you something...
+            </h2>
+            <p class="text-pink-400 animate-bounce mt-10">
+                (Klik dimana saja untuk lanjut)
+            </p>
+        </div>
+    </div>
+
+    <!-- PAGE 3: The Question -->
+    <div id="page3" class="page">
+        <div class="text-center relative w-full h-full flex flex-col items-center justify-center max-w-3xl">
+            <h1 class="heading-font text-5xl sm:text-7xl text-pink-600 mb-12 drop-shadow-md">
+                Will you be my girlfriend?
+            </h1>
+            
+            <div class="flex gap-6 sm:gap-12 mt-8 items-center justify-center relative w-full h-32">
+                <!-- MAU Button -->
+                <button onclick="goToPage(4)" class="btn-pulse px-10 py-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xl sm:text-2xl font-bold rounded-full shadow-xl hover:shadow-rose-400/50 transition-transform hover:scale-110 active:scale-95 z-20">
+                    Mau! 🥰
+                </button>
+
+                <!-- GAMAU Button (The Runaway Button) -->
+                <button id="btn-gamau" class="px-10 py-4 bg-gray-200 text-gray-600 text-xl sm:text-2xl font-bold rounded-full shadow-md transition-all duration-200 ease-out z-20">
+                    Gamau 😔
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: The Success -->
+    <div id="page4" class="page text-center">
+        <div class="bg-white/80 backdrop-blur-md p-8 sm:p-12 rounded-3xl shadow-2xl border border-pink-100 max-w-xl mx-auto z-10 transform scale-100 transition-transform duration-500 hover:scale-105">
+            <div class="text-6xl mb-6">🎉💖👩‍❤️‍👨💖🎉</div>
+            <h1 class="heading-font text-3xl sm:text-4xl text-pink-600 mb-4 leading-tight">
+                Untung mau, kalo gamau bakal ditinggal disini ❤️
+            </h1>
+            <p class="text-gray-600 mt-4 text-lg">
+                I love you, Adeline!
+            </p>
+        </div>
+    </div>
+
+    <!-- Javascript Logic -->
+    <script>
+        // Function to handle page transitions
+        function goToPage(pageNumber) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            const targetPage = document.getElementById(`page${pageNumber}`);
+            if(targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // If navigating to page 4 (Success), start falling hearts effect
+            if (pageNumber === 4) {
+                startFallingHearts();
+            }
+        }
+
+        // Logic for the "Gamau" Runaway Button
+        const btnGamau = document.getElementById('btn-gamau');
+        
+        // Function to move button to random coordinates
+        const moveButton = (e) => {
+            // Prevent default touch behavior so they can't force click it
+            if(e) e.preventDefault(); 
+            
+            // Switch to fixed position so it moves across the whole screen easily
+            btnGamau.style.position = 'fixed';
+            
+            // Calculate safe bounds so it doesn't disappear off-screen
+            const btnWidth = btnGamau.offsetWidth;
+            const btnHeight = btnGamau.offsetHeight;
+            const maxX = window.innerWidth - btnWidth - 20; // 20px padding margin
+            const maxY = window.innerHeight - btnHeight - 20;
+            
+            const randomX = Math.max(20, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(20, Math.floor(Math.random() * maxY));
+            
+            // Apply new coordinates
+            btnGamau.style.left = `${randomX}px`;
+            btnGamau.style.top = `${randomY}px`;
+        };
+
+        // Add event listeners for hovering (mouse) and touching (mobile)
+        btnGamau.addEventListener('mouseover', moveButton);
+        btnGamau.addEventListener('touchstart', moveButton, {passive: false});
+
+        // Function to create falling hearts effect on the last page
+        function startFallingHearts() {
+            const heartEmojis = ['❤️', '💖', '💗', '💓', '💞'];
+            
+            // Create a heart every 300ms
+            const heartInterval = setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-fall');
+                
+                // Randomize heart properties
+                heart.innerText = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                
+                // Randomize animation duration (fall speed) and size
+                const duration = Math.random() * 3 + 3; // 3 to 6 seconds
+                heart.style.animationDuration = `${duration}s`;
+                heart.style.fontSize = `${Math.random() * 1.5 + 1}rem`;
+                
+                document.body.appendChild(heart);
+                
+                // Remove heart after it falls off screen to prevent memory leaks
+                setTimeout(() => {
+                    heart.remove();
+                }, duration * 1000);
+            }, 300);
+
+            // Optional: Stop creating hearts after 30 seconds to save performance
+            setTimeout(() => {
+                clearInterval(heartInterval);
+            }, 30000);
+        }
+    </script>
+</body>
+</html>
